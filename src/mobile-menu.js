@@ -14,12 +14,31 @@ const items = function mobileItems(action) {
       width: "0%",
       height: "0%",
     });
+
+    cssStyle(menuItemsContainer.firstElementChild, {
+      transform: "translate(-200%, -200%)",
+      display: "block",
+      width: "0%",
+      height: "auto",
+    });
   } else {
     cssStyle(menuItemsContainer, {
       backgroundColor: "#FBCEB1",
       borderBottomRightRadius: "600px 450px",
       width: "100%",
       height: "80%",
+      transition: "all 0.5s ease",
+    });
+
+    cssStyle(menuItemsContainer.firstElementChild, {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-evenly",
+      alignItems: "start",
+      padding: "0px 0px 0px 50px",
+      width: "90%",
+      height: "90%",
+      transform: "translate(0%, 0%)",
       transition: "all 0.5s ease",
     });
   }
@@ -31,10 +50,7 @@ const animation = function createOpeningAndClosingAnimation() {
   const secondLine = document.querySelector(".bar2");
   const thirdLine = document.querySelector(".bar3");
 
-  console.log(firstLine.parentNode.style.position);
-
   if (firstLine.parentNode.style.position === "absolute") {
-    console.log("true - close");
     items("close");
     cssStyle(firstLine.parentNode, {
       position: "relative",
@@ -55,7 +71,6 @@ const animation = function createOpeningAndClosingAnimation() {
       transform: "rotate(0deg)",
     });
   } else {
-    console.log("false - open");
     cssStyle(allLines, {
       transition: "all 300ms ease",
     });
@@ -98,11 +113,23 @@ const mobile = function mobileMenu() {
   const hamburgerLines = document.querySelectorAll(".bar");
   const body = document.querySelectorAll("body");
   const menuItemsContainer = document.querySelector(".mobile-items");
+  const ulListItems = document.querySelectorAll(".item");
 
   // console.log("running");
   cssStyle(menuItemsContainer, {
     width: "0%",
     height: "0%",
+  });
+
+  cssStyle(menuItemsContainer.firstElementChild, {
+    margin: "0",
+    padding: "0",
+    transform: "translate(-200%, -200%)",
+  });
+
+  cssStyle(ulListItems, {
+    listStyleType: "none",
+    fontSize: "2rem",
   });
 
   cssStyle(body, {
@@ -113,6 +140,7 @@ const mobile = function mobileMenu() {
   cssStyle(hamburgerContainer, {
     width: "100dvw",
     height: "100dvh",
+    overflow: "hidden",
   });
 
   cssStyle(hamburgerBttn, {
