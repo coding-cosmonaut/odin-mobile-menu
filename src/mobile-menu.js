@@ -13,6 +13,7 @@ const items = function mobileItems(action) {
     cssStyle(menuItemsContainer, {
       width: "0%",
       height: "0%",
+      transition: "none",
     });
 
     cssStyle(menuItemsContainer.firstElementChild, {
@@ -23,8 +24,8 @@ const items = function mobileItems(action) {
     });
   } else {
     cssStyle(menuItemsContainer, {
-      backgroundColor: "#FBCEB1",
-      borderBottomRightRadius: "600px 450px",
+      backgroundColor: "#e9a17b",
+      borderRadius: "100% 0% 100% 0% / 0% 36% 64% 100%",
       width: "100%",
       height: "80%",
       transition: "all 0.5s ease",
@@ -57,18 +58,22 @@ const animation = function createOpeningAndClosingAnimation() {
       bottom: "0%",
       left: "0%",
       transform: "translateX(0%)",
+      transition: "none",
     });
 
     cssStyle(firstLine, {
+      transition: "none",
       transform: "rotate(0deg)",
     });
 
     cssStyle(secondLine, {
       opacity: "1",
+      transition: "none",
     });
 
     cssStyle(thirdLine, {
       transform: "rotate(0deg)",
+      transition: "none",
     });
   } else {
     cssStyle(allLines, {
@@ -86,7 +91,6 @@ const animation = function createOpeningAndClosingAnimation() {
       left: "50%",
       transform: "translateX(-50%)",
       transition: "all 0.3s ease",
-      borderRadius: "50%",
     });
 
     cssStyle(secondLine, {
@@ -130,6 +134,8 @@ const mobile = function mobileMenu() {
   cssStyle(ulListItems, {
     listStyleType: "none",
     fontSize: "2rem",
+    color: "white",
+    fontWeight: "bold",
   });
 
   cssStyle(body, {
